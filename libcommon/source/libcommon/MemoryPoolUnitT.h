@@ -1,5 +1,6 @@
 #pragma once
 
+namespace eric { namespace common {
 #define CHUNK_SIZE 1024*1024
 
 #pragma pack(push, 1)
@@ -211,3 +212,4 @@ protected:
 	}
 };
 
+}}

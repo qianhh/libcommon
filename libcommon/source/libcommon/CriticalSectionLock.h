@@ -5,6 +5,7 @@
  ** 临界区封装类
  ** designed by eric,2016/08/20
  **/
+namespace eric { namespace common {
 class CriticalSectionAutoLock;
 class CriticalSectionLock
 {
@@ -59,3 +60,5 @@ public:
 private:
 	CRITICAL_SECTION &m_cs;
 };
+
+}}

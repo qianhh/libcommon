@@ -5,6 +5,7 @@
 
 //NOTE: 在预处理器定义中加上ZLIB_WINAPI
 
+namespace eric { namespace common {
 // Compress gzip data
 // data 原数据 ndata 原数据长度 zdata 压缩后数据 nzdata 压缩后长度
 int gzcompress(Bytef *data, uLong ndata, Bytef *zdata, uLong *nzdata)
@@ -163,3 +164,5 @@ bool CZipCompress::ZipUncompress(char* pSrcZip, long lSize, Buffer& buf)
 	buf.ReleaseBufferSetSize(lDsstSize);
 	return nResult==Z_OK;
 }
+
+}}

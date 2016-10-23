@@ -11,6 +11,7 @@ using namespace std;
 #define DELETE_HANDLE(h) \
 	if (h) { CloseHandle(h); h = NULL; }
 
+namespace eric { namespace common {
 typedef struct tagTaskItem
 {
 	unsigned int (*_pFunc)(void *);	//º¯ÊýÖ¸Õë
@@ -414,3 +415,5 @@ unsigned int WINAPI ThreadPool::ThreadFunction(void* pContext)
 #endif
 	return uResult;
 }
+
+}}

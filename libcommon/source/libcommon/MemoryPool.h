@@ -21,6 +21,7 @@
  ** ÄÚ´æ³Ø
  ** designed by eric,2016/08/20
  **/
+namespace eric { namespace common {
 class MemoryPool
 {
 public:
@@ -77,3 +78,5 @@ private:
 	MemoryPoolSingleton(void);
 	virtual ~MemoryPoolSingleton(void);
 };
+
+}}

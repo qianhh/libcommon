@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "../../lib/libcommon.h"
+using namespace eric::common;
 //#ifdef _DEBUG
 //#pragma comment(lib,"../../lib/Debug/libcommon.lib")
 //#else

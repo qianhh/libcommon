@@ -7,7 +7,7 @@
 // TODO: 在 STDAFX.H 中
 // 引用任何所需的附加头文件，而不是在此文件中引用
 
-
+namespace eric { namespace common {
 void GetLastErrorMessage(std::string &strMessage, unsigned long dwErrorCode)
 {
 	LPVOID lpMsgBuf;
@@ -30,3 +30,5 @@ std::string GetLastErrorMessage(unsigned long dwErrorCode)
 	LocalFree(lpMsgBuf);
 	return strMessage;
 }
+
+}}

@@ -13,5 +13,9 @@
 #endif
 
 #include <string>
+namespace eric { namespace common {
+
 extern void GetLastErrorMessage(std::string &strMessage, unsigned long dwErrorCode);
 extern std::string GetLastErrorMessage(unsigned long dwErrorCode);
+
+}}

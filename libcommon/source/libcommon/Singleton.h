@@ -4,6 +4,7 @@
  ** 单例模式基类(饿汉模式)，支持多线程操作
  ** designed by eric,2016/08/20
  **/
+namespace eric { namespace common {
 template<class T>
 class CSingleton
 {
@@ -35,3 +36,5 @@ private:
 
 template<typename T>
 typename CSingleton<T>::CreateObject CSingleton<T>::s_CreateObject;
+
+}}

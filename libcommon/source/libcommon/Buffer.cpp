@@ -10,6 +10,8 @@
 	if (ptr) { delete[] ptr; ptr = NULL; }
 #endif
 
+namespace eric { namespace common {
+
 template< typename N >
 inline N AlignUp( N n, unsigned long nAlign ) throw()
 {
@@ -132,3 +134,5 @@ void Buffer::CopyTo(Buffer& dest) const
 		dest.SetSize(m_lSize);
 	}	
 }
+
+}}

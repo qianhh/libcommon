@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "Charset.h"
 
+namespace eric { namespace common {
 void Charset::UnicodeToGB2312(LPCWSTR lpText, Buffer& bufOut)
 {
 	bufOut.Empty();
@@ -309,3 +310,5 @@ void Charset::UrlUTF8ToGB2312(LPCSTR lpText, Buffer& bufOut)
 	UrlGB2312ToGB2312(lpText, buf);
 	UTF8ToGB2312((LPCSTR)buf.GetBuffer(), bufOut);
 }
+
+}}

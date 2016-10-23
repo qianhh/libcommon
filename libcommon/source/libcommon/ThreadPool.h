@@ -5,6 +5,7 @@
  ** Ïß³Ì³Ø
  ** designed by eric,2016/08/20
  **/
+namespace eric { namespace common {
 #ifndef STRICT
 typedef void *HANDLE;
 #endif
@@ -67,3 +68,5 @@ private:
 	ThreadPoolSingleton(void);
 	~ThreadPoolSingleton(void);
 };
+
+}}

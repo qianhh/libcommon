@@ -15,7 +15,7 @@ using namespace std;
 
 #define PRINTF_BUF_SIZE  1024
 
-
+namespace eric { namespace common {
 class Date {
 public:
     // Constructor that initializes the object to a day, month and year
@@ -446,4 +446,4 @@ unsigned int __stdcall Logger::ThreadFunction(void* pContext)
 	return dwResult;
 }
 
-
+}}

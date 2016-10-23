@@ -20,6 +20,7 @@ using namespace std;
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
+namespace eric { namespace common {
 ClientThread::ClientThread(void) : m_hThread(NULL), m_uThreadId(0), m_nPort(10000)
 	, m_sockClient(0), m_bExit(false), m_pEventConnect(new Event(FALSE, TRUE))
 	, m_nMaxPort(m_nPort + 50), m_bFloatPort(false)
@@ -279,3 +280,5 @@ bool ClientThread::TestConnect(void)
 	if (strResp == "工资日结") return true;
 	return false;
 }
+
+}}

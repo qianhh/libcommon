@@ -5,6 +5,7 @@
  ** zip—πÀı”ÎΩ‚—π
  ** designed by eric,2016/08/20
  **/
+namespace eric { namespace common {
 class CZipCompress
 {
 public:
@@ -17,3 +18,4 @@ public:
 	static bool ZipUncompress(char* pSrcZip, long lSize, Buffer& buf); //Ω‚—π
 };
 
+}}

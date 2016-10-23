@@ -26,6 +26,7 @@
  ** designed by eric,2016/10/12
  ** modified by eric,2016/10/18
  **/
+namespace eric { namespace common {
 class Logger : public CSingleton<Logger>
 {
 	friend class CSingleton<Logger>;
@@ -87,3 +88,4 @@ private:
 #define LOG_TRACE
 #endif
 
+}}

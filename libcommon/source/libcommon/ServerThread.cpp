@@ -19,6 +19,7 @@ using namespace std;
 #endif
 #define BACKLOG     10
 
+namespace eric { namespace common {
 //用户写事件完成后的销毁，在on_write()中执行
 struct sock_ev_write
 {
@@ -423,3 +424,5 @@ bool ServerThread::IsTestClient(void *socket, const Buffer &bufRecv)
 	}
 	return false;
 }
+
+}}

@@ -2,6 +2,7 @@
 #include "MemoryPool.h"
 #include <cassert>
 
+namespace eric { namespace common {
 MemoryPool::MemoryPool(void)
 {
 }
@@ -172,3 +173,5 @@ void MemoryPool::FreeOtherMemory(void *pointer)
 {
 	free(pointer);
 }
+
+}}

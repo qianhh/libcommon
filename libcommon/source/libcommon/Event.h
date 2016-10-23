@@ -4,6 +4,7 @@
  ** Event·â×°Àà
  ** designed by eric,2016/08/26
  **/
+namespace eric { namespace common {
 class Event
 {
 public:
@@ -44,3 +45,5 @@ public:
 
 	HANDLE	m_hObject;
 };
+
+}}

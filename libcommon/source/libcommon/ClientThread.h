@@ -5,6 +5,7 @@
  ** designed by eric,2016/08/22
  ** modified by eric,2016/10/21
  **/
+namespace eric { namespace common {
 class Buffer;
 class Event;
 class ClientThread
@@ -77,3 +78,5 @@ private:
 	bool				m_bExit;			//thread exit flag
 	Event				*m_pEventConnect;	//connect event
 };
+
+}}

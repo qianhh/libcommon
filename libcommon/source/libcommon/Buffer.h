@@ -4,6 +4,7 @@
  ** ª∫¥Êπ‹¿Ì
  ** designed by eric,2016/08/20
  **/
+namespace eric { namespace common {
 class Buffer
 {
 public:
@@ -78,3 +79,4 @@ private:
 	long m_lAllocSize;
 };
 
+}}

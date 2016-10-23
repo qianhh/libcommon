@@ -5,6 +5,9 @@
  ** designed by eric,2016/08/17
  ** modified by eric,2016/10/21
  **/
+struct event_base;
+struct event;
+namespace eric { namespace common {
 class Buffer;
 class ServerThread
 {
@@ -73,3 +76,5 @@ private:
 	int					m_listener;		//listen socket
 
 };
+
+}}

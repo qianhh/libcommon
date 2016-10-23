@@ -5,6 +5,7 @@
  ** ±àÂë×ª»»
  ** designed by eric,2016/09/06
  **/
+namespace eric { namespace common {
 class Charset
 {
 public:
@@ -20,3 +21,5 @@ public:
 	static void GB2312ToUrlUTF8(LPCSTR lpText, Buffer& bufOut);
 	static void UrlUTF8ToGB2312(LPCSTR lpText, Buffer& bufOut);
 };
+
+}}

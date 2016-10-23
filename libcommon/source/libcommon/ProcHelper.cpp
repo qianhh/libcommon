@@ -5,7 +5,7 @@
 #include <string>
 using namespace std;
 
-
+namespace eric { namespace common {
 bool CProcHelper::SetSigletonProc(const char *pszProcName)
 {
     if (!pszProcName)
@@ -28,3 +28,5 @@ bool CProcHelper::SetSigletonProc(const char *pszProcName)
 
     return true;
 }
+
+}}

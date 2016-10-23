@@ -4,6 +4,7 @@
  ** 进程操作的相关类
  ** designed by eric,2016/08/23
  **/
+namespace eric { namespace common {
 class CProcHelper
 {
 public:
@@ -15,4 +16,5 @@ public:
      **/
     static bool SetSigletonProc(const char *pszProcName);
 };
-	
+
+}}
