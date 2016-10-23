@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{8b3c96b8-0ffd-46b5-b1e5-ae7a116d29be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="third_party">
+      <UniqueIdentifier>{4b5e8de9-8e43-469f-8f91-9fa1d7cbc338}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="third_party\json">
+      <UniqueIdentifier>{8fd4e441-f883-41e5-94c1-bb572a7eb08b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="third_party\base64">
+      <UniqueIdentifier>{16126a93-9bf8-4e9b-be76-1bccaeded898}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="third_party\hash">
+      <UniqueIdentifier>{1daf2fb2-6a21-4203-b5b1-fae81940d9bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="third_party\sqlite">
+      <UniqueIdentifier>{d3da27ba-64a4-4976-8fb1-f90a06209eb4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="..\..\third_party\json\json_internalarray.inl">
+      <Filter>third_party\json</Filter>
+    </None>
+    <None Include="..\..\third_party\json\json_internalmap.inl">
+      <Filter>third_party\json</Filter>
+    </None>
+    <None Include="..\..\third_party\json\json_valueiterator.inl">
+      <Filter>third_party\json</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third_party\base64\base64.h">
+      <Filter>third_party\base64</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third_party\hash\md5.h">
+      <Filter>third_party\hash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third_party\json\json.h">
+      <Filter>third_party\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third_party\json\json_autolink.h">
+      <Filter>third_party\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third_party\json\json_batchallocator.h">
+      <Filter>third_party\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third_party\json\json_config.h">
+      <Filter>third_party\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third_party\json\json_features.h">
+      <Filter>third_party\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third_party\json\json_forwards.h">
+      <Filter>third_party\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third_party\json\json_reader.h">
+      <Filter>third_party\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third_party\json\json_value.h">
+      <Filter>third_party\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third_party\json\json_writer.h">
+      <Filter>third_party\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third_party\sqlite\sqlite3.h">
+      <Filter>third_party\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third_party\sqlite\sqlite3ext.h">
+      <Filter>third_party\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="libcommon.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Buffer.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="ZipCompress.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="log.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryPool.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryPoolUnitT.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadPool.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="CriticalSectionLock.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerThread.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientThread.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcHelper.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Charset.h">
+      <Filter>common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\base64\base64.cpp">
+      <Filter>third_party\base64</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\hash\md5.cpp">
+      <Filter>third_party\hash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\json\json_reader.cpp">
+      <Filter>third_party\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\json\json_value.cpp">
+      <Filter>third_party\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\json\json_writer.cpp">
+      <Filter>third_party\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\sqlite\shell.c">
+      <Filter>third_party\sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\sqlite\sqlite3.c">
+      <Filter>third_party\sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="Buffer.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="ZipCompress.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="log.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryPool.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadPool.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerThread.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientThread.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcHelper.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="Charset.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

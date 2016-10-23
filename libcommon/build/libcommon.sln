@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcommon", "..\source\libcommon\libcommon.vcxproj", "{806B8C7E-72CA-4F7E-8FF6-0756377F3987}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcommonTest", "..\source\libcommonTest\libcommonTest.vcxproj", "{B7E5A99B-0A25-4892-BE31-4430153D7C09}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug_MT|Win32 = Debug_MT|Win32
+		Debug|Win32 = Debug|Win32
+		Release_MT|Win32 = Release_MT|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{806B8C7E-72CA-4F7E-8FF6-0756377F3987}.Debug_MT|Win32.ActiveCfg = Debug_MT|Win32
+		{806B8C7E-72CA-4F7E-8FF6-0756377F3987}.Debug_MT|Win32.Build.0 = Debug_MT|Win32
+		{806B8C7E-72CA-4F7E-8FF6-0756377F3987}.Debug|Win32.ActiveCfg = Debug|Win32
+		{806B8C7E-72CA-4F7E-8FF6-0756377F3987}.Debug|Win32.Build.0 = Debug|Win32
+		{806B8C7E-72CA-4F7E-8FF6-0756377F3987}.Release_MT|Win32.ActiveCfg = Release_MT|Win32
+		{806B8C7E-72CA-4F7E-8FF6-0756377F3987}.Release_MT|Win32.Build.0 = Release_MT|Win32
+		{806B8C7E-72CA-4F7E-8FF6-0756377F3987}.Release|Win32.ActiveCfg = Release|Win32
+		{806B8C7E-72CA-4F7E-8FF6-0756377F3987}.Release|Win32.Build.0 = Release|Win32
+		{B7E5A99B-0A25-4892-BE31-4430153D7C09}.Debug_MT|Win32.ActiveCfg = Debug|Win32
+		{B7E5A99B-0A25-4892-BE31-4430153D7C09}.Debug_MT|Win32.Build.0 = Debug|Win32
+		{B7E5A99B-0A25-4892-BE31-4430153D7C09}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B7E5A99B-0A25-4892-BE31-4430153D7C09}.Debug|Win32.Build.0 = Debug|Win32
+		{B7E5A99B-0A25-4892-BE31-4430153D7C09}.Release_MT|Win32.ActiveCfg = Release|Win32
+		{B7E5A99B-0A25-4892-BE31-4430153D7C09}.Release_MT|Win32.Build.0 = Release|Win32
+		{B7E5A99B-0A25-4892-BE31-4430153D7C09}.Release|Win32.ActiveCfg = Release|Win32
+		{B7E5A99B-0A25-4892-BE31-4430153D7C09}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,14 @@
+*.user
+*.ncb
+*.suo
+*.sdf
+*.opensdf
+*.aps
+*.log
+*.tlog
+*.obj
+*.pch
+*.idb
+/WebBrowser/bin
+/WebBrowser/build/ipch
+/WebBrowser/build_temp
