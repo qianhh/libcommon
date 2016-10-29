@@ -20,6 +20,8 @@
 #include "libcommon/Event.h"
 #include "libcommon/ProcHelper.h"
 #include "libcommon/Charset.h"
+#include "libcommon/NamedPipeServer.h"
+#include "libcommon/NamedPipeClient.h"
 
 #endif // LIBCOMMON_H_INCLUDED
 

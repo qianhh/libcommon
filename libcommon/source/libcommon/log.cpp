@@ -160,7 +160,6 @@ struct Logger::Impl
 	CriticalSectionLock m_lock;		//log锁
 	char m_szLogPath[MAX_PATH];		//log路径
 	char m_szLogDirectory[MAX_PATH];//log目录
-	char m_szBuf[PRINTF_BUF_SIZE];	//一条log的缓存
 	Logger::MOD_FILE m_modType;		//log文件模式
 	bool m_reserveLog;				//是否保留log
 	bool m_exit;					//退出
@@ -176,7 +175,6 @@ Logger::Logger(void) : m_pImpl(new Impl)
 	strcat_s(m_pImpl->m_szLogDirectory, ".log");
 
 	memset(m_pImpl->m_szLogPath, 0, sizeof(m_pImpl->m_szLogPath));
-	memset(m_pImpl->m_szBuf, 0, sizeof(m_pImpl->m_szBuf));
 
 	m_pImpl->m_modType = ONLY_FILE;
 	m_pImpl->m_reserveLog = false;
@@ -222,24 +220,24 @@ void Logger::SetCacheSize(unsigned int size)
 
 void Logger::Write(const char *info, const char *fmt, ...)
 {
-	char *pBuf = m_pImpl->m_szBuf;
+	char szBuf[PRINTF_BUF_SIZE] = {0};	//一条log的缓存
 	SYSTEMTIME systime = {0};
 	::GetLocalTime(&systime);
-	int nTimeCount = _snprintf_s(pBuf, PRINTF_BUF_SIZE, 32, "[%04d/%02d/%02d %02d:%02d:%02d.%03d]", systime.wYear, systime.wMonth, systime.wDay
+	int nTimeCount = _snprintf_s(szBuf, PRINTF_BUF_SIZE, 32, "[%04d/%02d/%02d %02d:%02d:%02d.%03d]", systime.wYear, systime.wMonth, systime.wDay
 		, systime.wHour, systime.wMinute, systime.wSecond, systime.wMilliseconds);
-	strcat_s(pBuf, PRINTF_BUF_SIZE, info);
+	strcat_s(szBuf, PRINTF_BUF_SIZE, info);
 	nTimeCount += strlen(info);
 	va_list args;
 	va_start(args, fmt);
-	int nCount = _vsnprintf_s(pBuf+nTimeCount, PRINTF_BUF_SIZE-nTimeCount, PRINTF_BUF_SIZE-nTimeCount-3, fmt, args);
+	int nCount = _vsnprintf_s(szBuf+nTimeCount, PRINTF_BUF_SIZE-nTimeCount, PRINTF_BUF_SIZE-nTimeCount-3, fmt, args);
 	va_end(args);
 	if (nCount > -1 && nCount < PRINTF_BUF_SIZE)
 		nCount += nTimeCount;
 	else
 		nCount = PRINTF_BUF_SIZE - 3;
-	pBuf[nCount] = '\r';
-	pBuf[nCount+1] = '\n';
-	pBuf[nCount+2] = 0;
+	szBuf[nCount] = '\r';
+	szBuf[nCount+1] = '\n';
+	szBuf[nCount+2] = 0;
 
 #ifdef WRITE_FILE_FLAG
 	if (!m_pImpl->m_hWriteThread)
@@ -249,8 +247,8 @@ void Logger::Write(const char *info, const char *fmt, ...)
 	}
 
 	CriticalSectionAutoLock lock(m_pImpl->m_lock);
-	::OutputDebugStringA(pBuf);
-	m_pImpl->m_cache.Append(pBuf, nCount+2);
+	::OutputDebugStringA(szBuf);
+	m_pImpl->m_cache.Append(szBuf, nCount+2);
 	if (m_pImpl->m_cache.GetSize() > (long)m_pImpl->m_uCacheSize)
 		m_pImpl->m_eventWrite.SetEvent();
 #else

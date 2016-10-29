@@ -3,18 +3,19 @@
 #include <Windows.h>
 #include "log.h"
 #include <string>
+#include "Charset.h"
 using namespace std;
 
 namespace eric { namespace common {
-bool CProcHelper::SetSigletonProc(const char *pszProcName)
+bool CProcHelper::SetSigletonProc(const wchar_t *pszProcName)
 {
     if (!pszProcName)
     {
         return false;
     }
 
-    const string strMutex = pszProcName + string("_MUTEX");
-    HANDLE hMutex = CreateMutexA(NULL, FALSE, strMutex.c_str());
+    const wstring strMutex = pszProcName + wstring(L"_MUTEX");
+    HANDLE hMutex = CreateMutexW(NULL, FALSE, strMutex.c_str());
     if (NULL == hMutex)
     {
        LOG_TRACE("CreateMutexW FAILED. GetLastError: %d", GetLastError());
@@ -22,7 +23,9 @@ bool CProcHelper::SetSigletonProc(const char *pszProcName)
     }
     if (ERROR_ALREADY_EXISTS == GetLastError())
     {
-		LOG_TRACE("Mutex %s already EXISTED.", strMutex.c_str());
+		Buffer buf;
+		Charset::UnicodeToGB2312(strMutex.c_str(), buf);
+		LOG_TRACE("Mutex %s already EXISTED.", buf.GetBuffer());
         return false;
     }
 

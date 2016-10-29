@@ -127,7 +127,9 @@ echo D | xcopy "$(SolutionDir)..\source\libcommon\ServerThread.h" "$(SolutionDir
 echo D | xcopy "$(SolutionDir)..\source\libcommon\ClientThread.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\source\libcommon\Event.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\source\libcommon\ProcHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
-echo D | xcopy "$(SolutionDir)..\source\libcommon\Charset.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d</Command>
+echo D | xcopy "$(SolutionDir)..\source\libcommon\Charset.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeServer.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_MT|Win32'">
@@ -172,7 +174,9 @@ echo D | xcopy "$(SolutionDir)..\source\libcommon\ServerThread.h" "$(SolutionDir
 echo D | xcopy "$(SolutionDir)..\source\libcommon\ClientThread.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\source\libcommon\Event.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\source\libcommon\ProcHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
-echo D | xcopy "$(SolutionDir)..\source\libcommon\Charset.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d</Command>
+echo D | xcopy "$(SolutionDir)..\source\libcommon\Charset.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeServer.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -221,7 +225,9 @@ echo D | xcopy "$(SolutionDir)..\source\libcommon\ServerThread.h" "$(SolutionDir
 echo D | xcopy "$(SolutionDir)..\source\libcommon\ClientThread.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\source\libcommon\Event.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\source\libcommon\ProcHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
-echo D | xcopy "$(SolutionDir)..\source\libcommon\Charset.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d</Command>
+echo D | xcopy "$(SolutionDir)..\source\libcommon\Charset.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeServer.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_MT|Win32'">
@@ -270,7 +276,9 @@ echo D | xcopy "$(SolutionDir)..\source\libcommon\ServerThread.h" "$(SolutionDir
 echo D | xcopy "$(SolutionDir)..\source\libcommon\ClientThread.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\source\libcommon\Event.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\source\libcommon\ProcHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
-echo D | xcopy "$(SolutionDir)..\source\libcommon\Charset.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d</Command>
+echo D | xcopy "$(SolutionDir)..\source\libcommon\Charset.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeServer.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -303,6 +311,8 @@ echo D | xcopy "$(SolutionDir)..\source\libcommon\Charset.h" "$(SolutionDir)..\l
     <ClInclude Include="log.h" />
     <ClInclude Include="MemoryPool.h" />
     <ClInclude Include="MemoryPoolUnitT.h" />
+    <ClInclude Include="NamedPipeClient.h" />
+    <ClInclude Include="NamedPipeServer.h" />
     <ClInclude Include="ProcHelper.h" />
     <ClInclude Include="ServerThread.h" />
     <ClInclude Include="Singleton.h" />
@@ -324,6 +334,8 @@ echo D | xcopy "$(SolutionDir)..\source\libcommon\Charset.h" "$(SolutionDir)..\l
     <ClCompile Include="ClientThread.cpp" />
     <ClCompile Include="log.cpp" />
     <ClCompile Include="MemoryPool.cpp" />
+    <ClCompile Include="NamedPipeClient.cpp" />
+    <ClCompile Include="NamedPipeServer.cpp" />
     <ClCompile Include="ProcHelper.cpp" />
     <ClCompile Include="ServerThread.cpp" />
     <ClCompile Include="stdafx.cpp">

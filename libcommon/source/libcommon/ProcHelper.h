@@ -10,11 +10,10 @@ class CProcHelper
 public:
     /**
      ** 设置进程单例运行，避免启动多个同样的EXE
-     ** @param[out] procName            进程名
-     ** @retval                         true 成功
-     ** @retval                         false 失败
+     ** @param[in] pszProcName				进程名
+     ** @retval								true 设置成功; false 设置失败，可能已存在该进程
      **/
-    static bool SetSigletonProc(const char *pszProcName);
+    static bool SetSigletonProc(const wchar_t *pszProcName);
 };
 
 }}

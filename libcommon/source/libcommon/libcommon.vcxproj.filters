@@ -131,6 +131,12 @@
     <ClInclude Include="Charset.h">
       <Filter>common</Filter>
     </ClInclude>
+    <ClInclude Include="NamedPipeClient.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="NamedPipeServer.h">
+      <Filter>common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -182,6 +188,12 @@
       <Filter>common</Filter>
     </ClCompile>
     <ClCompile Include="Charset.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="NamedPipeClient.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="NamedPipeServer.cpp">
       <Filter>common</Filter>
     </ClCompile>
   </ItemGroup>
