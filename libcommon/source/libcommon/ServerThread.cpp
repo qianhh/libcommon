@@ -38,14 +38,14 @@ struct sock_ev_read
 //accept线程需要传递的参数
 struct accept_param
 {
-	int sockfd;
+	intptr_t sockfd;
 	ServerThread *pServer;
 };
 
 //用于传递客户端socket连接参数
 struct socket_param
 {
-	int socket;
+	intptr_t socket;
 	event_base *base;
 };
 
@@ -269,7 +269,7 @@ unsigned int ServerThread::ThreadAcceptFunction(void* pContext)
 		LOG_TRACE("accept_param is null");
 		return 1;
 	}
-	int sockfd = param->sockfd;
+	intptr_t sockfd = param->sockfd;
 	if (sockfd < 0)
 	{
 		LOG_TRACE("socket error, sockfd=%d", sockfd);
@@ -301,9 +301,9 @@ unsigned int ServerThread::ThreadAcceptFunction(void* pContext)
 	return 0;
 }
 
-void ServerThread::on_accept(int sock, short event, void* arg)
+void ServerThread::on_accept(intptr_t sock, short event, void* arg)
 {
-	int sockfd;
+	intptr_t sockfd;
 	struct sockaddr_in client;
 	int len = sizeof(client);
 	sockfd = ::accept(sock, (struct sockaddr*)&client, &len);
@@ -315,7 +315,7 @@ void ServerThread::on_accept(int sock, short event, void* arg)
 	ThreadPoolSingleton::GetInstance()->SubmitTask(ServerThread::ThreadAcceptFunction, param);
 }
 
-void ServerThread::on_read(int sock, short event, void* arg)
+void ServerThread::on_read(intptr_t sock, short event, void* arg)
 {
 	LOG_TRACE("called, sock=%d", sock);
 	if (!arg)
@@ -363,7 +363,7 @@ void ServerThread::on_read(int sock, short event, void* arg)
 	LOG_TRACE("finished, sock=%d", sock);
 }
 
-void ServerThread::on_write(int sock, short event, void* arg)
+void ServerThread::on_write(intptr_t sock, short event, void* arg)
 {
 	LOG_TRACE("called, sock=%d", sock);
 	if (!arg)

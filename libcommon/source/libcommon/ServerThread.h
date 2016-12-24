@@ -59,9 +59,9 @@ private:
 	unsigned int Execute(void); //执行函数
 	static unsigned int WINAPI ThreadFunction(void* pContext);
 	static unsigned int ThreadAcceptFunction(void* pContext);
-	static void on_accept(int sock, short event, void* arg);
-	static void on_read(int sock, short event, void* arg);
-	static void on_write(int sock, short event, void* arg);
+	static void on_accept(intptr_t sock, short event, void* arg);
+	static void on_read(intptr_t sock, short event, void* arg);
+	static void on_write(intptr_t sock, short event, void* arg);
 
 	bool IsTestClient(void *socket, const Buffer &bufRecv); //测试客户端连接
 	
@@ -73,7 +73,7 @@ private:
 	unsigned short		m_nMaxPort;		//max port 
 	bool				m_bFloatPort;	//enable float port
 	struct event		*m_evlisten;	//event listen pointer
-	int					m_listener;		//listen socket
+	uintptr_t			m_listener;		//listen socket
 
 };
 

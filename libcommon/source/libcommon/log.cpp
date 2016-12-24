@@ -10,149 +10,15 @@
 #include "Buffer.h"
 #include "Event.h"
 #include "CriticalSectionLock.h"
+#include "Date.h"
+#include "FileHelper.h"
+#include "Charset.h"
 
 using namespace std; 
 
 #define PRINTF_BUF_SIZE  1024
 
 namespace eric { namespace common {
-class Date {
-public:
-    // Constructor that initializes the object to a day, month and year
-    Date(int nYear, int nMonth, int nDay) : m_nDay(nDay), m_nMonth(nMonth), m_nYear(nYear)
-	{
-    }
-
-	Date(void) : m_nDay(0), m_nMonth(0), m_nYear(0)
-	{
-		SYSTEMTIME systime = {0};
-		::GetLocalTime(&systime);
-		m_nYear = systime.wYear;
-		m_nMonth = systime.wMonth;
-		m_nDay = systime.wDay;
-    }
-
-	//日期加天数，因为定义的天数为int型，所以可能加一个负的天数
-	//故在循环中添加了判断处理，若负则执行减操作，反之执行加操作 
-	void AddDays(int nDaysToAdd)
-	{
-		m_nDay += nDaysToAdd;
-		while (m_nDay > GetMonthDay(m_nYear, m_nMonth) || m_nDay <= 0)
-		{ 
-			if (m_nDay > 0)
-			{
-				m_nDay -= GetMonthDay(m_nYear, m_nMonth);
-				if (m_nMonth == 12)
-				{
-					m_nMonth = 0;
-					++m_nYear;
-				}
-				++m_nMonth;
-			} 
-			else
-			{ 
-				m_nDay += GetMonthDay(m_nYear, m_nMonth); 
-				if (m_nMonth == 1)
-				{ 
-					m_nMonth = 13;
-					--m_nYear;
-				} 
-				--m_nMonth; 
-			}
-		}
-	}
-
-    void AddMonths(int nMonthsToAdd)
-	{
-        m_nMonth += nMonthsToAdd;
- 
-        if (m_nMonth > 12)
-		{
-            AddYears(m_nMonth / 12);
-            m_nMonth %= 12; // rollover dec -> jan
-        }
-		else if (m_nMonth < 1)
-		{
-			while (m_nMonth < 1)
-			{
-				m_nMonth += 12;
-				AddYears(-1);
-			}
-		}
-		m_nDay = min(m_nDay, GetMonthDay(m_nYear, m_nMonth));
-    }
- 
-    void AddYears(int m_nYearsToAdd)
-	{
-        m_nYear += m_nYearsToAdd;
-    }
- 
-    Date operator +(int nDaysToAdd)
-	{
-        Date newDate(m_nYear, m_nMonth, m_nDay);
-        newDate.AddDays(nDaysToAdd);
- 
-        return newDate;
-    }
- 
-    string FormatDate(char szMask = '-')
-	{
-		std::stringstream ssTemp;
-		ssTemp << m_nYear << szMask << setw(2) << setfill('0') << right << m_nMonth 
-			<< szMask << setw(2) << setfill('0') << right << m_nDay;
-		return ssTemp.str();
-	}
-
-	string FormatYearMonth(char szMask = '-')
-	{
-		std::stringstream ssTemp;
-		ssTemp << m_nYear << szMask << setw(2) << setfill('0') << right << m_nMonth;
-		return ssTemp.str();
-	}
-
-	int GetYear(void) const
-	{
-		return m_nYear;
-	}
-
-	int GetMonth(void) const
-	{
-		return m_nMonth;
-	}
-
-	int GetDay(void) const
-	{
-		return m_nDay;
-	}
-
-private:
-	bool IsLeapYear(int year) 
-	{ 
-		if (((year % 4 == 0) && (year % 100)) || (year % 400 == 0)) 
-		{ 
-			return true; 
-		} 
-		return false; 
-	}
-
-	int GetMonthDay(int year, int month) //用一个数组存储1-12月所占天数
-	{ 
-		int monthArray[13] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 }; 
-		int day = monthArray[month]; 
-		if (month == 2 && IsLeapYear(year)) 
-		{ 
-			day += 1; 
-		} 
-		return day; 
-	}
-
-private:
-    int m_nDay; // Range: 1 - 30 (lets assume all months have 30 days!)
-    int m_nMonth; // Range: 1 - 12
-    int m_nYear;
-};
-
-
 struct Logger::Impl
 {
 	Buffer m_cache;					//待写入文件的缓存
@@ -226,7 +92,7 @@ void Logger::Write(const char *info, const char *fmt, ...)
 	int nTimeCount = _snprintf_s(szBuf, PRINTF_BUF_SIZE, 32, "[%04d/%02d/%02d %02d:%02d:%02d.%03d]", systime.wYear, systime.wMonth, systime.wDay
 		, systime.wHour, systime.wMinute, systime.wSecond, systime.wMilliseconds);
 	strcat_s(szBuf, PRINTF_BUF_SIZE, info);
-	nTimeCount += strlen(info);
+	nTimeCount += (int)strlen(info);
 	va_list args;
 	va_start(args, fmt);
 	int nCount = _vsnprintf_s(szBuf+nTimeCount, PRINTF_BUF_SIZE-nTimeCount, PRINTF_BUF_SIZE-nTimeCount-3, fmt, args);
@@ -291,9 +157,52 @@ void Logger::DeleteOldLogFile(void)
 					strFileName[i] = date.FormatDate();
 					date.AddDays(-1);
 				}
+
+				//对保留文件进行只读保护
+				string strFile;
+				for (long i = 0; i < MAX_RESERVE; ++i)
+				{
+					strFile = m_pImpl->m_szLogDirectory;
+					strFile += "\\" + strFileName[i];
+					SetFileAttributesA(strFile.c_str(), FILE_ATTRIBUTE_READONLY);
+				}
+
+				WIN32_FIND_DATAA fData;
+				strFile = m_pImpl->m_szLogDirectory;
+				strFile += "\\*-*";
+				HANDLE hFind = FindFirstFileA(strFile.c_str(), &fData);
+				if (hFind == INVALID_HANDLE_VALUE)
+					return;
+
+				do
+				{
+					if (fData.cFileName[0] == '.' )
+						continue;
+
+					if (fData.dwFileAttributes != FILE_ATTRIBUTE_DIRECTORY)
+					{
+						if (strCurFileName != fData.cFileName) //当前日志排除
+						{
+							strFile = m_pImpl->m_szLogDirectory;
+							strFile += "\\";
+							strFile += fData.cFileName;
+							DeleteFileA(strFile.c_str());
+						}
+					}
+				} while(FindNextFileA(hFind, &fData));
+
+				if (hFind) FindClose(hFind);
+
+				//对保留文件属性进行还原
+				for (long i = 0; i < MAX_RESERVE; ++i)
+				{
+					strFile = m_pImpl->m_szLogDirectory;
+					strFile += "\\" + strFileName[i];
+					SetFileAttributesA(strFile.c_str(), FILE_ATTRIBUTE_NORMAL);
+				}
 			}
 			break;
-		case PERMONTH_FILE: //保留最近7个月的日志
+		case PERMONTH_DIR: //保留最近7个月的日志
 			{
 				strCurFileName = date.FormatYearMonth();
 				date.AddMonths(-1);
@@ -302,45 +211,45 @@ void Logger::DeleteOldLogFile(void)
 					strFileName[i] = date.FormatYearMonth();
 					date.AddMonths(-1);
 				}
+
+				WIN32_FIND_DATAA fData;
+				string strFile = m_pImpl->m_szLogDirectory;
+				strFile += "\\*-*";
+				HANDLE hFind = FindFirstFileA(strFile.c_str(), &fData);
+				if (hFind == INVALID_HANDLE_VALUE)
+					return;
+
+				do
+				{
+					if (fData.cFileName[0] == '.' )
+						continue;
+
+					if (fData.dwFileAttributes == FILE_ATTRIBUTE_DIRECTORY)
+					{
+						if (strCurFileName == fData.cFileName) //当前日志排除
+							continue;
+						bool bReserve = false;
+						for (long i = 0; i < MAX_RESERVE; ++i)
+						{
+							if (strFileName[i] == fData.cFileName)
+							{
+								bReserve = true;
+								break;
+							}
+						}
+						if (!bReserve) // 删除目录
+						{
+							strFile = m_pImpl->m_szLogDirectory;
+							strFile += "\\";
+							strFile += fData.cFileName;
+							FileHelper::DeleteDir(Charset::GB2312ToUnicode(strFile));
+						}
+					}
+				} while(FindNextFileA(hFind, &fData));
+
+				if (hFind) FindClose(hFind);
 			}
 			break;
-	}
-	//对保留文件进行只读保护
-	string strFile;
-	for (long i = 0; i < MAX_RESERVE; ++i)
-	{
-		strFile = m_pImpl->m_szLogDirectory;
-		strFile += "\\" + strFileName[i];
-		SetFileAttributesA(strFile.c_str(), FILE_ATTRIBUTE_READONLY);
-	}
-
-    WIN32_FIND_DATAA fData;
-	strFile = m_pImpl->m_szLogDirectory;
-	strFile += "\\*-*";
-	HANDLE hFind = FindFirstFileA(strFile.c_str(), &fData);
-    if (hFind == INVALID_HANDLE_VALUE)
-        return;
-
-    do
-	{
-        if (fData.cFileName[0] == '.' )
-            continue;
-
-        if (fData.dwFileAttributes != FILE_ATTRIBUTE_DIRECTORY)
-        {
-			if (strCurFileName != fData.cFileName) //当前日志排除
-				DeleteFileA(strFile.c_str());
-        }
-    } while(FindNextFileA(hFind, &fData));
-
-    if (hFind) FindClose(hFind);
-
-	//对保留文件属性进行还原
-	for (long i = 0; i < MAX_RESERVE; ++i)
-	{
-		strFile = m_pImpl->m_szLogDirectory;
-		strFile += "\\" + strFileName[i];
-		SetFileAttributesA(strFile.c_str(), FILE_ATTRIBUTE_NORMAL);
 	}
 }
 
@@ -359,16 +268,16 @@ void Logger::GenerateLogFileName(void)
 			strcpy_s(m_pImpl->m_szLogPath, ssTemp.str().c_str());
 		}
 		break;
-	case PERMONTH_FILE:
+	case PERMONTH_DIR:
 		{
 			Date date;
 			std::stringstream ssTemp;
-			ssTemp << m_pImpl->m_szLogDirectory << "\\" << date.GetYear() << "-" << setw(2) << setfill('0') << left << date.GetMonth();
+			ssTemp << m_pImpl->m_szLogDirectory << "\\" << date.FormatYearMonth() << "\\" << date.FormatDate();
 			strcpy_s(m_pImpl->m_szLogPath, ssTemp.str().c_str());
 		}
 		break;
 	}
-	if (m_pImpl->m_modType == PERDAY_FILE || m_pImpl->m_modType == PERMONTH_FILE)
+	if (m_pImpl->m_modType == PERDAY_FILE || m_pImpl->m_modType == PERMONTH_DIR)
 	{
 		WIN32_FIND_DATAA wfd = {0};
 		bool bExist = false;
@@ -392,11 +301,16 @@ void Logger::GenerateLogFileName(void)
 				}
 			}
 		}
+		if (!FileHelper::CreateFileAlways(Charset::GB2312ToUnicode(m_pImpl->m_szLogPath)))
+		{
+			::OutputDebugStringA("CreateFileAlways failed\n");
+		}
 	}
 }
 
 unsigned int Logger::Execute(void)
 {
+	GenerateLogFileName();
 	DeleteOldLogFile(); //刚启动的时候进行日志删除操作
 	while (!m_pImpl->m_exit)
 	{
@@ -413,8 +327,15 @@ unsigned int Logger::Execute(void)
 			{
 				fwrite(cache.GetBuffer(), cache.GetSize(), 1, fp);
 				fclose(fp);
+				cache.Empty();
 			}
-			cache.Empty();
+			else
+			{
+				string strMsg = "open file failed, error: " + GetLastErrorMessage();
+				::OutputDebugStringA(strMsg.c_str());
+			}
+			if (m_pImpl->m_cache.GetSize() > (long)m_pImpl->m_uCacheSize) //如果写文件失败导致缓存超出限制则直接丢弃
+				cache.Empty();
 		}
 
 		SYSTEMTIME systime = {0};

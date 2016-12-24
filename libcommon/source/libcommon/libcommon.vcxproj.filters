@@ -27,6 +27,24 @@
     <Filter Include="third_party\sqlite">
       <UniqueIdentifier>{d3da27ba-64a4-4976-8fb1-f90a06209eb4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="third_party\tinyxml">
+      <UniqueIdentifier>{136533cb-bf0b-41fd-8190-b823a5c32b65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="third_party\pcre">
+      <UniqueIdentifier>{ce73db33-ac28-4d20-b42b-6135c7422841}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\memorypool">
+      <UniqueIdentifier>{b7f7f477-2b98-404e-bd49-e7e2cc8b69a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\threadpool">
+      <UniqueIdentifier>{aca41962-6a49-4f56-b1ac-e35baada75b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\socket">
+      <UniqueIdentifier>{e49a8d32-9971-4fab-af86-dcc4d54878df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\namedpipe">
+      <UniqueIdentifier>{f5928675-03ed-4b45-9424-370ee456ed8a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -98,28 +116,13 @@
     <ClInclude Include="log.h">
       <Filter>common</Filter>
     </ClInclude>
-    <ClInclude Include="MemoryPool.h">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="MemoryPoolUnitT.h">
-      <Filter>common</Filter>
-    </ClInclude>
     <ClInclude Include="Singleton.h">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="ThreadPool.h">
       <Filter>common</Filter>
     </ClInclude>
     <ClInclude Include="common.h">
       <Filter>common</Filter>
     </ClInclude>
     <ClInclude Include="CriticalSectionLock.h">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="ServerThread.h">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="ClientThread.h">
       <Filter>common</Filter>
     </ClInclude>
     <ClInclude Include="Event.h">
@@ -131,10 +134,73 @@
     <ClInclude Include="Charset.h">
       <Filter>common</Filter>
     </ClInclude>
-    <ClInclude Include="NamedPipeClient.h">
+    <ClInclude Include="RegexHelper.h">
       <Filter>common</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\third_party\tinyxml\tinystr.h">
+      <Filter>third_party\tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third_party\tinyxml\tinyxml.h">
+      <Filter>third_party\tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third_party\pcre\config.h">
+      <Filter>third_party\pcre</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third_party\pcre\pcre.h">
+      <Filter>third_party\pcre</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third_party\pcre\pcre_internal.h">
+      <Filter>third_party\pcre</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third_party\pcre\pcreposix.h">
+      <Filter>third_party\pcre</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third_party\pcre\pcrs.h">
+      <Filter>third_party\pcre</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third_party\pcre\ucp.h">
+      <Filter>third_party\pcre</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryPoolUnitT.h">
+      <Filter>common\memorypool</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryPool.h">
+      <Filter>common\memorypool</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadPool.h">
+      <Filter>common\threadpool</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientThread.h">
+      <Filter>common\socket</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerThread.h">
+      <Filter>common\socket</Filter>
+    </ClInclude>
     <ClInclude Include="NamedPipeServer.h">
+      <Filter>common\namedpipe</Filter>
+    </ClInclude>
+    <ClInclude Include="NamedPipeClient.h">
+      <Filter>common\namedpipe</Filter>
+    </ClInclude>
+    <ClInclude Include="StringHelper.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="ConvertHelper.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="FileHelper.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="PathHelper.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="OSHelper.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="RegHelper.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Date.h">
       <Filter>common</Filter>
     </ClInclude>
   </ItemGroup>
@@ -172,28 +238,205 @@
     <ClCompile Include="log.cpp">
       <Filter>common</Filter>
     </ClCompile>
-    <ClCompile Include="MemoryPool.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="ThreadPool.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="ServerThread.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="ClientThread.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
     <ClCompile Include="ProcHelper.cpp">
       <Filter>common</Filter>
     </ClCompile>
     <ClCompile Include="Charset.cpp">
       <Filter>common</Filter>
     </ClCompile>
-    <ClCompile Include="NamedPipeClient.cpp">
+    <ClCompile Include="RegexHelper.cpp">
       <Filter>common</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\third_party\tinyxml\tinystr.cpp">
+      <Filter>third_party\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\tinyxml\tinyxml.cpp">
+      <Filter>third_party\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\tinyxml\tinyxmlerror.cpp">
+      <Filter>third_party\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\tinyxml\tinyxmlparser.cpp">
+      <Filter>third_party\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_byte_order.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_chartables.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_compile.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_config.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_dfa_exec.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_exec.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_fullinfo.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_get.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_globals.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_jit_compile.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_jit_test.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_maketables.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_newline.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_ord2utf8.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_printint.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_refcount.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_string_utils.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_study.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_tables.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_ucd.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_valid_utf8.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_version.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre_xclass.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_byte_order.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_chartables.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_compile.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_config.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_dfa_exec.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_exec.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_fullinfo.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_get.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_globals.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_jit_compile.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_maketables.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_newline.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_ord2utf16.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_printint.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_refcount.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_string_utils.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_study.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_tables.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_ucd.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_utf16_utils.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_valid_utf16.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_version.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcre16_xclass.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcreposix.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third_party\pcre\pcrs.c">
+      <Filter>third_party\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryPool.cpp">
+      <Filter>common\memorypool</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadPool.cpp">
+      <Filter>common\threadpool</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientThread.cpp">
+      <Filter>common\socket</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerThread.cpp">
+      <Filter>common\socket</Filter>
+    </ClCompile>
+    <ClCompile Include="NamedPipeClient.cpp">
+      <Filter>common\namedpipe</Filter>
+    </ClCompile>
     <ClCompile Include="NamedPipeServer.cpp">
+      <Filter>common\namedpipe</Filter>
+    </ClCompile>
+    <ClCompile Include="StringHelper.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="FileHelper.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="PathHelper.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="OSHelper.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="RegHelper.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="Date.cpp">
       <Filter>common</Filter>
     </ClCompile>
   </ItemGroup>

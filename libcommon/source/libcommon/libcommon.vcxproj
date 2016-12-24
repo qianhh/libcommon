@@ -5,17 +5,33 @@
       <Configuration>Debug_MT</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_MT|x64">
+      <Configuration>Debug_MT</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release_MT|Win32">
       <Configuration>Release_MT</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_MT|x64">
+      <Configuration>Release_MT</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -30,13 +46,32 @@
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>false</UseOfMfc>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_MT|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>false</UseOfMfc>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_MT|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -50,19 +85,38 @@
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>false</UseOfMfc>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_MT|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_MT|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_MT|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_MT|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_MT|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
@@ -71,26 +125,46 @@
     <IntDir>$(SolutionDir)..\temp\$(Configuration)\$(ProjectName)\</IntDir>
     <TargetName>$(ProjectName)_d</TargetName>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)..\lib\</OutDir>
+    <IntDir>$(SolutionDir)..\temp\$(Configuration)x64\$(ProjectName)\</IntDir>
+    <TargetName>$(ProjectName)_x64d</TargetName>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_MT|Win32'">
     <OutDir>$(SolutionDir)..\lib\</OutDir>
     <IntDir>$(SolutionDir)..\temp\$(Configuration)\$(ProjectName)\</IntDir>
     <TargetName>$(ProjectName)_mtd</TargetName>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_MT|x64'">
+    <OutDir>$(SolutionDir)..\lib\</OutDir>
+    <IntDir>$(SolutionDir)..\temp\$(Configuration)x64\$(ProjectName)\</IntDir>
+    <TargetName>$(ProjectName)_x64mtd</TargetName>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)..\lib\</OutDir>
     <IntDir>$(SolutionDir)..\temp\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)..\lib\</OutDir>
+    <IntDir>$(SolutionDir)..\temp\$(Configuration)x64\$(ProjectName)\</IntDir>
+    <TargetName>$(ProjectName)_x64</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_MT|Win32'">
     <OutDir>$(SolutionDir)..\lib\</OutDir>
     <IntDir>$(SolutionDir)..\temp\$(Configuration)\$(ProjectName)\</IntDir>
     <TargetName>$(ProjectName)_mt</TargetName>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_MT|x64'">
+    <OutDir>$(SolutionDir)..\lib\</OutDir>
+    <IntDir>$(SolutionDir)..\temp\$(Configuration)x64\$(ProjectName)\</IntDir>
+    <TargetName>$(ProjectName)_x64mt</TargetName>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;ZLIB_WINAPI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;ZLIB_WINAPI;HAVE_CONFIG_H;PCRE_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)..\third_party\;$(SolutionDir)..\third_party\libevent\inc\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
@@ -99,7 +173,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\third_party\libevent\x32\;$(SolutionDir)..\third_party\zlib\x32\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../third_party/libevent/x32/;../../third_party/zlib/x32/</AdditionalLibraryDirectories>
       <AdditionalDependencies>libevent.lib;zlibstat.lib</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
@@ -113,6 +187,7 @@ echo D | xcopy "$(SolutionDir)..\third_party\base64\*.h" "$(SolutionDir)..\lib\l
 echo D | xcopy "$(SolutionDir)..\third_party\hash\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\third_party\json\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\third_party\sqlite\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\tinyxml\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 
 echo D | xcopy "$(SolutionDir)..\source\libcommon\common.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\source\libcommon\Buffer.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
@@ -129,7 +204,69 @@ echo D | xcopy "$(SolutionDir)..\source\libcommon\Event.h" "$(SolutionDir)..\lib
 echo D | xcopy "$(SolutionDir)..\source\libcommon\ProcHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\source\libcommon\Charset.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeServer.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
-echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d</Command>
+echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\RegexHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\StringHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ConvertHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\FileHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\OSHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\PathHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\RegHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WIN64;_DEBUG;_LIB;ZLIB_WINAPI;HAVE_CONFIG_H;PCRE_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\third_party\;$(SolutionDir)..\third_party\libevent\inc\</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>../../third_party/libevent/x64/;../../third_party/zlib/x64/</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libevent.lib;zlibstat.lib</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+    </Lib>
+    <PreBuildEvent>
+      <Command>echo D | xcopy "$(SolutionDir)..\source\libcommon\libcommon.h" "$(SolutionDir)..\lib\"  /s /y /d
+
+echo D | xcopy "$(SolutionDir)..\third_party\zlib\inc\*" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\base64\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\hash\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\json\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\sqlite\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\tinyxml\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+
+echo D | xcopy "$(SolutionDir)..\source\libcommon\common.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\Buffer.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ZipCompress.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\log.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\MemoryPoolUnitT.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\MemoryPool.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\Singleton.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ThreadPool.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\CriticalSectionLock.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ServerThread.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ClientThread.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\Event.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ProcHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\Charset.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeServer.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\RegexHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\StringHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ConvertHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\FileHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\OSHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\PathHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\RegHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_MT|Win32'">
@@ -137,7 +274,7 @@ echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(Solution
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;ZLIB_WINAPI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;ZLIB_WINAPI;HAVE_CONFIG_H;PCRE_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)..\third_party\;$(SolutionDir)..\third_party\libevent\inc\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
@@ -146,7 +283,7 @@ echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(Solution
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\third_party\libevent\x32\;$(SolutionDir)..\third_party\zlib\x32\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../third_party/libevent/x32/;../../third_party/zlib/x32/</AdditionalLibraryDirectories>
       <AdditionalDependencies>libevent.lib;zlibstat.lib</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
@@ -160,6 +297,7 @@ echo D | xcopy "$(SolutionDir)..\third_party\base64\*.h" "$(SolutionDir)..\lib\l
 echo D | xcopy "$(SolutionDir)..\third_party\hash\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\third_party\json\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\third_party\sqlite\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\tinyxml\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 
 echo D | xcopy "$(SolutionDir)..\source\libcommon\common.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\source\libcommon\Buffer.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
@@ -176,7 +314,69 @@ echo D | xcopy "$(SolutionDir)..\source\libcommon\Event.h" "$(SolutionDir)..\lib
 echo D | xcopy "$(SolutionDir)..\source\libcommon\ProcHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\source\libcommon\Charset.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeServer.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
-echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d</Command>
+echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\RegexHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\StringHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ConvertHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\FileHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\OSHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\PathHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\RegHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_MT|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WIN64;_DEBUG;_LIB;ZLIB_WINAPI;HAVE_CONFIG_H;PCRE_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\third_party\;$(SolutionDir)..\third_party\libevent\inc\</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>../../third_party/libevent/x64/;../../third_party/zlib/x64/</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libevent.lib;zlibstat.lib</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+    </Lib>
+    <PreBuildEvent>
+      <Command>echo D | xcopy "$(SolutionDir)..\source\libcommon\libcommon.h" "$(SolutionDir)..\lib\"  /s /y /d
+
+echo D | xcopy "$(SolutionDir)..\third_party\zlib\inc\*" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\base64\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\hash\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\json\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\sqlite\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\tinyxml\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+
+echo D | xcopy "$(SolutionDir)..\source\libcommon\common.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\Buffer.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ZipCompress.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\log.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\MemoryPoolUnitT.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\MemoryPool.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\Singleton.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ThreadPool.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\CriticalSectionLock.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ServerThread.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ClientThread.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\Event.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ProcHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\Charset.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeServer.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\RegexHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\StringHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ConvertHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\FileHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\OSHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\PathHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\RegHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -186,7 +386,7 @@ echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(Solution
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;ZLIB_WINAPI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;ZLIB_WINAPI;HAVE_CONFIG_H;PCRE_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)..\third_party\;$(SolutionDir)..\third_party\libevent\inc\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
@@ -197,7 +397,7 @@ echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(Solution
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\third_party\libevent\x32\;$(SolutionDir)..\third_party\zlib\x32\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../third_party/libevent/x32/;../../third_party/zlib/x32/</AdditionalLibraryDirectories>
       <AdditionalDependencies>libevent.lib;zlibstat.lib</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
@@ -211,6 +411,7 @@ echo D | xcopy "$(SolutionDir)..\third_party\base64\*.h" "$(SolutionDir)..\lib\l
 echo D | xcopy "$(SolutionDir)..\third_party\hash\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\third_party\json\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\third_party\sqlite\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\tinyxml\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 
 echo D | xcopy "$(SolutionDir)..\source\libcommon\common.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\source\libcommon\Buffer.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
@@ -227,7 +428,73 @@ echo D | xcopy "$(SolutionDir)..\source\libcommon\Event.h" "$(SolutionDir)..\lib
 echo D | xcopy "$(SolutionDir)..\source\libcommon\ProcHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\source\libcommon\Charset.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeServer.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
-echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d</Command>
+echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\RegexHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\StringHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ConvertHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\FileHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\OSHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\PathHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\RegHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_WIN64;NDEBUG;_LIB;ZLIB_WINAPI;HAVE_CONFIG_H;PCRE_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\third_party\;$(SolutionDir)..\third_party\libevent\inc\</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>../../third_party/libevent/x64/;../../third_party/zlib/x64/</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libevent.lib;zlibstat.lib</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+    </Lib>
+    <PreBuildEvent>
+      <Command>echo D | xcopy "$(SolutionDir)..\source\libcommon\libcommon.h" "$(SolutionDir)..\lib\"  /s /y /d
+
+echo D | xcopy "$(SolutionDir)..\third_party\zlib\inc\*" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\base64\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\hash\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\json\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\sqlite\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\tinyxml\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+
+echo D | xcopy "$(SolutionDir)..\source\libcommon\common.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\Buffer.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ZipCompress.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\log.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\MemoryPoolUnitT.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\MemoryPool.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\Singleton.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ThreadPool.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\CriticalSectionLock.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ServerThread.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ClientThread.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\Event.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ProcHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\Charset.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeServer.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\RegexHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\StringHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ConvertHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\FileHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\OSHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\PathHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\RegHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_MT|Win32'">
@@ -237,7 +504,7 @@ echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(Solution
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;ZLIB_WINAPI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;ZLIB_WINAPI;HAVE_CONFIG_H;PCRE_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)..\third_party\;$(SolutionDir)..\third_party\libevent\inc\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
@@ -248,7 +515,7 @@ echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(Solution
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\third_party\libevent\x32\;$(SolutionDir)..\third_party\zlib\x32\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../third_party/libevent/x32/;../../third_party/zlib/x32/</AdditionalLibraryDirectories>
       <AdditionalDependencies>libevent.lib;zlibstat.lib</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
@@ -262,6 +529,7 @@ echo D | xcopy "$(SolutionDir)..\third_party\base64\*.h" "$(SolutionDir)..\lib\l
 echo D | xcopy "$(SolutionDir)..\third_party\hash\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\third_party\json\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\third_party\sqlite\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\tinyxml\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 
 echo D | xcopy "$(SolutionDir)..\source\libcommon\common.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\source\libcommon\Buffer.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
@@ -278,7 +546,73 @@ echo D | xcopy "$(SolutionDir)..\source\libcommon\Event.h" "$(SolutionDir)..\lib
 echo D | xcopy "$(SolutionDir)..\source\libcommon\ProcHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\source\libcommon\Charset.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
 echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeServer.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
-echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d</Command>
+echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\RegexHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\StringHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ConvertHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\FileHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\OSHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\PathHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\RegHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_MT|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_WIN64;NDEBUG;_LIB;ZLIB_WINAPI;HAVE_CONFIG_H;PCRE_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\third_party\;$(SolutionDir)..\third_party\libevent\inc\</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>../../third_party/libevent/x64/;../../third_party/zlib/x64/</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libevent.lib;zlibstat.lib</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+    </Lib>
+    <PreBuildEvent>
+      <Command>echo D | xcopy "$(SolutionDir)..\source\libcommon\libcommon.h" "$(SolutionDir)..\lib\"  /s /y /d
+
+echo D | xcopy "$(SolutionDir)..\third_party\zlib\inc\*" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\base64\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\hash\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\json\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\sqlite\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\third_party\tinyxml\*.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+
+echo D | xcopy "$(SolutionDir)..\source\libcommon\common.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\Buffer.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ZipCompress.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\log.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\MemoryPoolUnitT.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\MemoryPool.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\Singleton.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ThreadPool.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\CriticalSectionLock.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ServerThread.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ClientThread.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\Event.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ProcHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\Charset.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeServer.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\RegexHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\StringHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\ConvertHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\FileHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\OSHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\PathHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d
+echo D | xcopy "$(SolutionDir)..\source\libcommon\RegHelper.h" "$(SolutionDir)..\lib\libcommon\"  /s /y /d</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -299,13 +633,23 @@ echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(Solution
     <ClInclude Include="..\..\third_party\json\json_reader.h" />
     <ClInclude Include="..\..\third_party\json\json_value.h" />
     <ClInclude Include="..\..\third_party\json\json_writer.h" />
+    <ClInclude Include="..\..\third_party\pcre\config.h" />
+    <ClInclude Include="..\..\third_party\pcre\pcre.h" />
+    <ClInclude Include="..\..\third_party\pcre\pcreposix.h" />
+    <ClInclude Include="..\..\third_party\pcre\pcre_internal.h" />
+    <ClInclude Include="..\..\third_party\pcre\pcrs.h" />
+    <ClInclude Include="..\..\third_party\pcre\ucp.h" />
     <ClInclude Include="..\..\third_party\sqlite\sqlite3.h" />
     <ClInclude Include="..\..\third_party\sqlite\sqlite3ext.h" />
+    <ClInclude Include="..\..\third_party\tinyxml\tinystr.h" />
+    <ClInclude Include="..\..\third_party\tinyxml\tinyxml.h" />
     <ClInclude Include="Buffer.h" />
     <ClInclude Include="Charset.h" />
     <ClInclude Include="ClientThread.h" />
     <ClInclude Include="common.h" />
+    <ClInclude Include="ConvertHelper.h" />
     <ClInclude Include="CriticalSectionLock.h" />
+    <ClInclude Include="Date.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="libcommon.h" />
     <ClInclude Include="log.h" />
@@ -313,10 +657,16 @@ echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(Solution
     <ClInclude Include="MemoryPoolUnitT.h" />
     <ClInclude Include="NamedPipeClient.h" />
     <ClInclude Include="NamedPipeServer.h" />
+    <ClInclude Include="FileHelper.h" />
+    <ClInclude Include="OSHelper.h" />
+    <ClInclude Include="PathHelper.h" />
     <ClInclude Include="ProcHelper.h" />
+    <ClInclude Include="RegexHelper.h" />
+    <ClInclude Include="RegHelper.h" />
     <ClInclude Include="ServerThread.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StringHelper.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="ThreadPool.h" />
     <ClInclude Include="ZipCompress.h" />
@@ -327,23 +677,86 @@ echo D | xcopy "$(SolutionDir)..\source\libcommon\NamedPipeClient.h" "$(Solution
     <ClCompile Include="..\..\third_party\json\json_reader.cpp" />
     <ClCompile Include="..\..\third_party\json\json_value.cpp" />
     <ClCompile Include="..\..\third_party\json\json_writer.cpp" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_byte_order.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_chartables.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_compile.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_config.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_dfa_exec.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_exec.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_fullinfo.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_get.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_globals.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_jit_compile.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_maketables.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_newline.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_ord2utf16.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_printint.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_refcount.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_string_utils.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_study.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_tables.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_ucd.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_utf16_utils.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_valid_utf16.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_version.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre16_xclass.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcreposix.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_byte_order.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_chartables.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_compile.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_config.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_dfa_exec.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_exec.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_fullinfo.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_get.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_globals.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_jit_compile.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_jit_test.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_maketables.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_newline.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_ord2utf8.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_printint.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_refcount.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_string_utils.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_study.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_tables.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_ucd.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_valid_utf8.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_version.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcre_xclass.c" />
+    <ClCompile Include="..\..\third_party\pcre\pcrs.c" />
     <ClCompile Include="..\..\third_party\sqlite\shell.c" />
     <ClCompile Include="..\..\third_party\sqlite\sqlite3.c" />
+    <ClCompile Include="..\..\third_party\tinyxml\tinystr.cpp" />
+    <ClCompile Include="..\..\third_party\tinyxml\tinyxml.cpp" />
+    <ClCompile Include="..\..\third_party\tinyxml\tinyxmlerror.cpp" />
+    <ClCompile Include="..\..\third_party\tinyxml\tinyxmlparser.cpp" />
     <ClCompile Include="Buffer.cpp" />
     <ClCompile Include="Charset.cpp" />
     <ClCompile Include="ClientThread.cpp" />
+    <ClCompile Include="Date.cpp" />
     <ClCompile Include="log.cpp" />
     <ClCompile Include="MemoryPool.cpp" />
     <ClCompile Include="NamedPipeClient.cpp" />
     <ClCompile Include="NamedPipeServer.cpp" />
+    <ClCompile Include="FileHelper.cpp" />
+    <ClCompile Include="OSHelper.cpp" />
+    <ClCompile Include="PathHelper.cpp" />
     <ClCompile Include="ProcHelper.cpp" />
+    <ClCompile Include="RegexHelper.cpp" />
+    <ClCompile Include="RegHelper.cpp" />
     <ClCompile Include="ServerThread.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_MT|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_MT|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_MT|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_MT|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="StringHelper.cpp" />
     <ClCompile Include="ThreadPool.cpp" />
     <ClCompile Include="ZipCompress.cpp" />
   </ItemGroup>

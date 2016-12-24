@@ -1,5 +1,7 @@
 #include "StdAfx.h"
 #include "Charset.h"
+#include <string>
+using namespace std;
 
 namespace eric { namespace common {
 void Charset::UnicodeToGB2312(LPCWSTR lpText, Buffer& bufOut)
@@ -243,6 +245,9 @@ void Charset::GB2312ToUrlGB2312(LPCSTR lpText, Buffer& bufOut)
             bufOut.Append(tempbuff, 3);
         }
     }
+	tempbuff[0] = '\0';
+	bufOut.Append(tempbuff, 1);
+	bufOut.SetSize(bufOut.GetSize()-1);
 }
 
 //把lpText编码为网页中的 UTF-8 url encode ,英文不变，汉字三字节  如%3D%AE%88
@@ -302,6 +307,7 @@ void Charset::UrlGB2312ToGB2312(LPCSTR lpText, Buffer& bufOut)
 	
 	dest = '\0';
 	bufOut.Append(&dest,1);
+	bufOut.SetSize(bufOut.GetSize()-1);
 }
 
 void Charset::UrlUTF8ToGB2312(LPCSTR lpText, Buffer& bufOut)
@@ -311,4 +317,85 @@ void Charset::UrlUTF8ToGB2312(LPCSTR lpText, Buffer& bufOut)
 	UTF8ToGB2312((LPCSTR)buf.GetBuffer(), bufOut);
 }
 
+std::string Charset::UnicodeToGB2312(const std::wstring &unicode)
+{
+	Buffer buf;
+	UnicodeToGB2312(unicode.c_str(), buf);
+	string out((char *)buf.GetBuffer(), buf.GetSize());
+	return out;
+}
+
+std::wstring Charset::GB2312ToUnicode(const std::string &gb2312)
+{
+	Buffer buf;
+	GB2312ToUnicode(gb2312.c_str(), buf);
+	wstring out((wchar_t *)buf.GetBuffer(), buf.GetSize()/sizeof(wchar_t));
+	return out;
+}
+
+std::string Charset::UnicodeToUTF8(const std::wstring &unicode)
+{
+	Buffer buf;
+	UnicodeToUTF8(unicode.c_str(), buf);
+	string out((char *)buf.GetBuffer(), buf.GetSize());
+	return out;
+}
+
+std::wstring Charset::UTF8ToUnicode(const std::string &utf8)
+{
+	Buffer buf;
+	UTF8ToUnicode(utf8.c_str(), buf);
+	wstring out((wchar_t *)buf.GetBuffer(), buf.GetSize()/sizeof(wchar_t));
+	return out;
+}
+
+std::string Charset::GB2312ToUTF8(const std::string &gb2312)
+{
+	Buffer buf;
+	GB2312ToUTF8(gb2312.c_str(), buf);
+	string out((char *)buf.GetBuffer(), buf.GetSize());
+	return out;
+}
+
+std::string Charset::UTF8ToGB2312(const std::string &utf8)
+{
+	Buffer buf;
+	UTF8ToGB2312(utf8.c_str(), buf);
+	string out((char *)buf.GetBuffer(), buf.GetSize());
+	return out;
+}
+
+std::string Charset::GB2312ToUrlGB2312(const std::string &gb2312)
+{
+	Buffer buf;
+	GB2312ToUrlGB2312(gb2312.c_str(), buf);
+	string out((char *)buf.GetBuffer(), buf.GetSize());
+	return out;
+}
+
+std::string Charset::UrlGB2312ToGB2312(const std::string &url_gb2312)
+{
+	Buffer buf;
+	UrlGB2312ToGB2312(url_gb2312.c_str(), buf);
+	string out((char *)buf.GetBuffer(), buf.GetSize());
+	return out;
+}
+
+std::string Charset::GB2312ToUrlUTF8(const std::string &gb2312)
+{
+	Buffer buf;
+	GB2312ToUrlUTF8(gb2312.c_str(), buf);
+	string out((char *)buf.GetBuffer(), buf.GetSize());
+	return out;
+}
+
+std::string Charset::UrlUTF8ToGB2312(const std::string &url_utf8)
+{
+	Buffer buf;
+	UrlUTF8ToGB2312(url_utf8.c_str(), buf);
+	string out((char *)buf.GetBuffer(), buf.GetSize());
+	return out;
+}
+
 }}
+

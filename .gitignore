@@ -9,6 +9,7 @@
 *.obj
 *.pch
 *.idb
+*.ipch
 /WebBrowser/bin
 /WebBrowser/build/ipch
 /WebBrowser/build_temp

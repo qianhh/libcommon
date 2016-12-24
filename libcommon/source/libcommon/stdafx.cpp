@@ -21,6 +21,8 @@ void GetLastErrorMessage(std::string &strMessage, unsigned long dwErrorCode)
 
 std::string GetLastErrorMessage(unsigned long dwErrorCode)
 {
+	if ((long)dwErrorCode == -1)
+		dwErrorCode = ::GetLastError();
 	LPVOID lpMsgBuf;
 	FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER|FORMAT_MESSAGE_FROM_SYSTEM,0,  
 		dwErrorCode ,

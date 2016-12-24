@@ -145,7 +145,7 @@ public:
 	void CloseAllThread(void)
 	{
 		CriticalSectionAutoLock lock(m_cs);
-		long lCount = m_ThreadMap.size();
+		long lCount = (long)m_ThreadMap.size();
 		if (lCount <= 0) return;
 		long i = 0;
 		//¹Ø±ÕÏß³Ì
@@ -198,7 +198,7 @@ public:
 	long GetThreadSize(void)
 	{
 		CriticalSectionAutoLock lock(m_cs);
-		return m_ThreadMap.size();
+		return (long)m_ThreadMap.size();
 	}
 
 	inline void SetInitNumber(long lNum)

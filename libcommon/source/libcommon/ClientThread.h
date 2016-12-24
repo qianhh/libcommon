@@ -74,7 +74,7 @@ private:
 	unsigned short		m_nPort;			//port begain
 	unsigned short		m_nMaxPort;			//max port 
 	bool				m_bFloatPort;		//enable float port
-	int					m_sockClient;		//client socket
+	uintptr_t			m_sockClient;		//client socket
 	bool				m_bExit;			//thread exit flag
 	Event				*m_pEventConnect;	//connect event
 };

@@ -24,7 +24,7 @@
 /**
  ** 简单日志类, 单例，线程安全，默认使用应用程序目录作为日志目录
  ** designed by eric,2016/10/12
- ** modified by eric,2016/10/18
+ ** modified by eric,2016/11/24
  **/
 namespace eric { namespace common {
 class Logger : public CSingleton<Logger>
@@ -51,12 +51,13 @@ public:
 	{
 		ONLY_FILE = 0,		//始终一个文件
 		PERDAY_FILE,		//每天一个文件
-		PERMONTH_FILE,		//每月一个文件
+		PERMONTH_DIR,		//每月一文件夹 每天一个文件
 	};
 	/**
 	 ** 设置模式 注：默认设置type=ONLY_FILE reserve=false
 	 ** @param[in] type				日志文件的类型
 	 ** @param[in] reserve			是否保留以前的日志文件 注：ONLY_FILE模式下reserve为false那么当文件大小超过10M会进行清空
+	 **								PERDAY_FILE模式下reserve为false那么只保留7天日志 PERMONTH_DIR模式下reserve为false那么保留7个月日志
 	 **/
 	void SetMod(MOD_FILE type, bool reserve);
 	/**
